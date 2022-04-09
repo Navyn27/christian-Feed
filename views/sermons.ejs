@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs")%>
+  <style>
+    header {
+      padding-top: -30px;
+      margin-bottom: 20px;
+      background-color: #0c4680;
+    }
+    #nav h1:nth-child(1) {
+      border: none;
+    }
+    #nav h1:nth-child(2) {
+      border-bottom: solid crimson;
+    }
+    footer {
+      margin-top: 400px;
+    }
+    header {
+      padding-bottom: 15px;
+    }
+    form {
+      margin-top: 10px;
+      position: absolute;
+      margin-left: 100px;
+      float: left;
+    }
+    form input:nth-child(1) {
+      width: 400px;
+    }
+  </style>
+  <body>
+    <%- include("./partials/header.ejs")%>
+    <a href="newSermon"><button id="newsBtn">NEW SERMON</button></a>
+    <form id="searchs" action="/sermon" method="GET">
+      <input
+        type="text"
+        name="sermonTitle"
+        placeholder="Search sermon by title"
+      />
+      <input class="submit" type="submit" value="Search" />
+    </form>
+    <section id="sermons">
+      <div><%= data %></div>
+    </section>
+    <%-include("./partials/footer.ejs")%>
+  </body>
+</html>

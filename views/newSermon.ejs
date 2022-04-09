@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs")%>
+  <style>
+    header {
+      padding-top: -30px;
+      margin-bottom: 20px;
+      background-color: #0c4680;
+      padding-bottom: 15px;
+    }
+    .submit {
+      width: 80px;
+    }
+    #nav h1:nth-child(1) {
+      border: none;
+    }
+    #nav h1:nth-child(2) {
+      border-bottom: solid crimson;
+    }
+    footer {
+      margin-top: 700px;
+    }
+    label {
+      font-family: "Yrsa", sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 100px;
+    }
+    form {
+      position: absolute;
+      margin-left: 500px;
+      margin-bottom: 100px;
+    }
+    form input {
+      text-align: center;
+      display: flex;
+      border: solid;
+      width: 500px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    textarea {
+      text-align: center;
+      display: flex;
+      border: solid;
+      width: 500px;
+      overflow: scroll;
+      flex-wrap: wrap;
+      font-family: "Yrsa", sans-serif;
+      font-weight: 600;
+      font-size: 17px;
+      height: 200px;
+    }
+  </style>
+  <body>
+    <%- include("./partials/header.ejs")%>
+    <form action="newSermon" method="POST">
+      <label>Title of the sermon</label>
+      <input
+        type="text"
+        name="title"
+        placeholder="eg: The resurrection of Jesus"
+      />
+      <label>Author of sermon</label>
+      <input type="text" name="author" placeholder="eg:Anonymous" />
+      <label>Author's email</label>
+      <input type="text" name="email" placeholder="eg:Anonymous" />
+      <label>Sermon Content</label>
+      <textarea
+        name="content"
+        placeholder="eg:fdassssssssssssssssssssssssssssssssss"
+      ></textarea>
+      <input class="submit" type="submit" value="CREATE" />
+    </form>
+    <%-include("./partials/footer.ejs")%>
+  </body>
+</html>
+`

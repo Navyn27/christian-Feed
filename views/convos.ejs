@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs")%>
+  <style>
+    header {
+      padding-top: -30px;
+      margin-bottom: 20px;
+      background-color: #0c4680;
+      padding-bottom: 15px;
+    }
+    #nav h1:nth-child(1) {
+      border: none;
+    }
+    #nav h1:nth-child(3) {
+      border-bottom: solid crimson;
+    }
+    footer {
+      margin-top: 400px;
+    }
+  </style>
+  <body>
+    <%- include("./partials/header.ejs")%>
+    <a href="/newConvo"><button id="newsBtn">NEW CONVERSATION</button></a>
+    <section id="sermons">
+      <div><%= data %></div>
+    </section>
+    <%-include("./partials/footer.ejs")%>
+  </body>
+</html>
