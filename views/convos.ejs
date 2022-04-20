@@ -17,12 +17,50 @@
     footer {
       margin-top: 400px;
     }
+    #convos {
+      margin-top: 80px;
+    }
+    form {
+      margin-top: 10px;
+      position: absolute;
+      margin-left: 100px;
+      float: left;
+    }
+    form input:nth-child(1) {
+      width: 400px;
+    }
+    h2 {
+      color: black;
+      border-left: solid crimson;
+      padding-left: 20px;
+      font-family: "Yrsa", sans-serif;
+    }
+    .diveIn {
+      color: crimson;
+      font-family: "Yrsa", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
   </style>
   <body>
     <%- include("./partials/header.ejs")%>
     <a href="/newConvo"><button id="newsBtn">NEW CONVERSATION</button></a>
-    <section id="sermons">
-      <div><%= data %></div>
+    <form action="searchConvo" method="POST">
+      <input
+        type="text"
+        name="title"
+        placeholder="Search Conversation by title"
+      />
+      <input class="submit" type="submit" value="Search" />
+    </form>
+    <section id="convos">
+      <% data.forEach(convo => {%>
+      <a class="diveIn" href="convo/<%=convo._id%>">
+        <h1><%=convo.title %></h1>
+        <h2><%= convo.content %></h2>
+        Dive In
+      </a>
+      <% }) %>
     </section>
     <%-include("./partials/footer.ejs")%>
   </body>

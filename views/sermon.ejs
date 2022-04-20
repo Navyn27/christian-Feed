@@ -19,12 +19,41 @@
     header {
       padding-bottom: 15px;
     }
+    h2 {
+      color: black;
+      border-left: solid crimson;
+      padding-left: 20px;
+      font-family: "Yrsa", sans-serif;
+    }
+    form {
+      margin-top: 10px;
+      position: absolute;
+      margin-left: 100px;
+      float: left;
+    }
+    form input:nth-child(1) {
+      width: 400px;
+    }
+    #sermons {
+      margin-top: 100px;
+    }
+    .read {
+      color: crimson;
+      font-family: "Yrsa", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
   </style>
+  <title>Sermon</title>
   <body>
-    <%- include("./partials/header.ejs")%>
-    <section id="sermons">
-      <div><%= data %></div>
-    </section>
-    <%-include("./partials/footer.ejs")%>
+    <div id="header"><%-include("./partials/header.ejs") %></div>
+    <div id="content">
+      <% data.forEach(sermon => { %>
+      <h1><%= sermon.title%></h1>
+      <h2><%= sermon.snippet %></h2>
+      <p><%= sermon.content%></p>
+      <% })%>
+    </div>
+    <div id="footer"><%-include("./partials/footer.ejs")%></div>
   </body>
 </html>

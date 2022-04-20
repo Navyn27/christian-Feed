@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include("./partials/head.ejs")%>
+  <script src="/scripts/front.js"></script>
   <body>
     <div id="bg">
       <div id="backsqr"></div>
@@ -19,17 +20,21 @@
     </main>
     <br /><br />
     <section id="scriptureH">
+      
       <p>Today's Scripture ,</p>
-      <span>&nbsp;&nbsp;6th April 2022</span>
+      <span>&nbsp;&nbsp;<%=data[0].date%></span>
     </section>
     <br />
-    <section>
-      <h1>Isaiah 43:19</h1>
-      <p>
-        19 See, I am doing a new thing! Now it springs up; do you not perceive
-        it? I am making a way in the wilderness and streams in the wasteland.
+    <section id="scripture">
+      <h1 id="scripTitle"><%=data[0].title%></h1>
+      <p id="scripBody">
+        " <%=data[0].body%> "
       </p>
     </section>
+    <span class="copyClick" id="copy1" onClick="copy()">
+      <img src="/images/copy.svg">
+    </span>
+    <span><p id="textCopy">Copied</p></span>
     <form id="sub" action="/intensive/subscribe" method="POST">
       <input
         type="text"
@@ -47,7 +52,7 @@
           them with <br />&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
           &nbsp;fellow christians
         </p>
-        <button>CREATE</button>
+        <a href="/newSermon"><button>CREATE</button></a>
       </div>
       <div id="read">
         <img src="/images/scrolls.jpg" alt="" />
@@ -56,7 +61,7 @@
           Read sermons and christian articles, <br />&nbsp; &nbsp;&nbsp;written
           by fellow christians
         </p>
-        <button>READ</button>
+        <a href="/sermons"><button>READ</button></a>
       </div>
       <div id="converse">
         <img src="/images/conversing.jpg" alt="" />
@@ -66,7 +71,7 @@
           on.You <br />can also contribute on discussions <br />&nbsp;
           &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;initiated by other users
         </p>
-        <button>CONVERSE</button>
+        <a href="/convos"><button>CONVERSE</button></a>
       </div>
     </section>
     <section>
@@ -127,4 +132,5 @@
     </section>
     <%-include("./partials/footer.ejs")%>
   </body>
+  <script src="/front.js"></script>
 </html>

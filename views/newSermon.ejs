@@ -18,7 +18,7 @@
       border-bottom: solid crimson;
     }
     footer {
-      margin-top: 700px;
+      margin-top: 800px;
     }
     label {
       font-family: "Yrsa", sans-serif;
@@ -56,20 +56,15 @@
     <%- include("./partials/header.ejs")%>
     <form action="newSermon" method="POST">
       <label>Title of the sermon</label>
-      <input
-        type="text"
-        name="title"
-        placeholder="eg: The resurrection of Jesus"
-      />
+      <input type="text" name="title" />
       <label>Author of sermon</label>
-      <input type="text" name="author" placeholder="eg:Anonymous" />
+      <input type="text" name="author" />
       <label>Author's email</label>
-      <input type="text" name="email" placeholder="eg:Anonymous" />
+      <input type="text" name="email" />
+      <label>Sermon snippet</label>
+      <input type="text" name="snippet" />
       <label>Sermon Content</label>
-      <textarea
-        name="content"
-        placeholder="eg:fdassssssssssssssssssssssssssssssssss"
-      ></textarea>
+      <textarea name="content"></textarea>
       <input class="submit" type="submit" value="CREATE" />
     </form>
     <%-include("./partials/footer.ejs")%>

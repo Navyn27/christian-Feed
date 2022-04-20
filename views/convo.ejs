@@ -1,13 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("./partials/head.ejs")%>
+  <%-include("./partials/head.ejs") %>
   <style>
     header {
       padding-top: -30px;
       margin-bottom: 20px;
       background-color: #0c4680;
-      padding-bottom: 15px;
     }
+    #content h1{
+      font-size: 38px;
+      color:crimson;
+      margin-left:100px;
+    }
+    #content h2{
+      margin-left:100px;
+    }
+    #content div{
+      margin-top:40px;
+    }
+    #content div h1{
+      font-size:32px;
+      color: black;
+      font-family: "Yrsa", sans-serif;
+    }
+    #content div p{
+      font-size:24px;
+      color: black;
+      font-family: "Yrsa", sans-serif;
+      margin-left:100px;
+      margin-bottom:10px;
+    } 
     #nav h1:nth-child(1) {
       border: none;
     }
@@ -17,10 +39,64 @@
     footer {
       margin-top: 400px;
     }
+    header {
+      padding-bottom: 15px;
+    }
+    #content h2 {
+      color: black;
+      border-left: solid crimson;
+      padding-left: 20px;
+      font-family: "Yrsa", sans-serif;
+    }
+    form {
+      margin-top: 10px;
+      position: absolute;
+      margin-left: 100px;
+      float: left;
+    }
+    form input:nth-child(1) {
+      width: 400px;
+    }
+    .read {
+      color: crimson;
+      font-family: "Yrsa", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    label{
+      font-family: "Yrsa";
+      font-size: 20px;
+      font-weight: bold;
+      color:rgb(181, 181, 181);
+    }
+    form input{
+      border:solid;
+    }
   </style>
+  <title>Convo</title>
   <body>
-    <%- include("./partials/header.ejs")%>
-    <button id="newsBtn">NEW CONVERSATION</button>
-    <%-include("./partials/footer.ejs")%>
+    <div id="header"><%-include("./partials/header.ejs") %></div>
+    <div id="content">
+      <% data.forEach(convo => { %>
+      <h1><%= convo.title%></h1>
+      <h2><%= convo.content %></h2>
+       <div> 
+          <% for(i=0;i<convo.contribution.length;i++){%>
+            <h1><%=convo.contribution[i].author%></h1>
+            <p><%=convo.contribution[i].idea%></p>
+          <%}%>
+      </div>
+    </div>
+      <form action="addContribution" method="POST">
+        <label>Add a contribution to this conversation</label><br>
+         <input style="display: none;" type="text" name="id" value="<%= convo._id %>">
+         <input type="text" name="contribauthor" placeholder="Enter your name"><br>
+         <textarea name="idea" placeholder="Enter your contribution">
+
+         </textarea>
+         <input type="submit" value="Contribute">
+      </form>
+      <%})%>
+    <div id="footer"><%-include("./partials/footer.ejs")%></div>
   </body>
 </html>

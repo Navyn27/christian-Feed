@@ -19,6 +19,12 @@
     header {
       padding-bottom: 15px;
     }
+    h2 {
+      color: black;
+      border-left: solid crimson;
+      padding-left: 20px;
+      font-family: "Yrsa", sans-serif;
+    }
     form {
       margin-top: 10px;
       position: absolute;
@@ -28,21 +34,35 @@
     form input:nth-child(1) {
       width: 400px;
     }
+    #sermons {
+      margin-top: 100px;
+    }
+    .read {
+      color: crimson;
+      font-family: "Yrsa", sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
   </style>
   <body>
     <%- include("./partials/header.ejs")%>
     <a href="newSermon"><button id="newsBtn">NEW SERMON</button></a>
-    <form id="searchs" action="/sermon" method="GET">
-      <input
-        type="text"
-        name="sermonTitle"
-        placeholder="Search sermon by title"
-      />
+
+    <form id="searchField" action="searchSermon" method="POST">
+      <input type="text" name="title" placeholder="Search sermon by title" />
       <input class="submit" type="submit" value="Search" />
     </form>
+
     <section id="sermons">
-      <div><%= data %></div>
+      <% data.forEach(sermon => {%>
+      <a class="read" href="/sermon/<%=sermon._id%>">
+        <h1><%=sermon.title %></h1>
+        <h2><%= sermon.snippet %></h2>
+        Read
+      </a>
+      <% }) %>
     </section>
+
     <%-include("./partials/footer.ejs")%>
   </body>
 </html>
