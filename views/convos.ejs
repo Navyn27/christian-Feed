@@ -8,17 +8,17 @@
       background-color: #0c4680;
       padding-bottom: 15px;
     }
-    #nav h1:nth-child(1) {
+    .nav h1:nth-child(1) {
       border: none;
     }
-    #nav h1:nth-child(3) {
+    #aside-nav h1:nth-child(3) {
+      border-bottom: solid #0c4680;
+    }
+    .nav h1:nth-child(3) {
       border-bottom: solid crimson;
     }
     footer {
       margin-top: 400px;
-    }
-    #convos {
-      margin-top: 80px;
     }
     form {
       margin-top: 10px;
@@ -45,13 +45,13 @@
   <body>
     <%- include("./partials/header.ejs")%>
     <a href="/newConvo"><button id="newsBtn">NEW CONVERSATION</button></a>
-    <form action="searchConvo" method="POST">
+    <form class="searchField" action="searchConvo" method="POST">
       <input
         type="text"
         name="title"
         placeholder="Search Conversation by title"
       />
-      <input class="submit" type="submit" value="Search" />
+      <input id="search" class="submit" type="submit" value="Search" />
     </form>
     <section id="convos">
       <% data.forEach(convo => {%>

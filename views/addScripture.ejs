@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("./partials/head.ejs")%>
+  <style>
+    header {
+      padding-top: -30px;
+      margin-bottom: 20px;
+      background-color: #0c4680;
+      padding-bottom: 15px;
+    }
+    .submit {
+      width: 80px;
+    }
+    footer {
+      margin-top: 700px;
+    }
+    label {
+      font-family: "Yrsa", sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 100px;
+    }
+    form {
+      position: absolute;
+      margin-left: 500px;
+      margin-bottom: 100px;
+    }
+    form input {
+      text-align: center;
+      display: flex;
+      border: solid;
+      width: 500px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+    textarea {
+      text-align: center;
+      display: flex;
+      border: solid;
+      width: 500px;
+      overflow: scroll;
+      flex-wrap: wrap;
+      font-family: "Yrsa", sans-serif;
+      font-weight: 600;
+      font-size: 17px;
+      height: 200px;
+    }
+  </style>
+  <body>
+    <%- include("./partials/header.ejs")%>
+    <form action="newConvo" method="POST">
+      <label>Creator's email</label>
+      <input type="text" name="email" placeholder="eg:Anonymous" />
+      <label>Subject of conversation</label>
+      <textarea
+        name="content"
+        placeholder="eg: Is the Sabbath worth celebrating"
+      ></textarea>
+      <input class="submit" type="submit" value="CREATE" />
+    </form>
+    <%-include("./partials/footer.ejs")%>
+  </body>
+</html>
+`

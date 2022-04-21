@@ -27,9 +27,7 @@ body {
 #textCopy {
   display: none;
   opacity: 0%;
-  animation: copied 2s;
-  transition: ease-in-out;
-  margin-top: -38px;
+  margin-top: -40px;
   margin-left: 150px;
   position: absolute;
   font-size: 30px;
@@ -103,22 +101,22 @@ body {
   font-family: "Goudy Bookletter 1911", serif;
 }
 header,
-#nav {
+.nav {
   display: flex;
 }
-#nav {
+.nav {
   margin-top: 50px;
   margin-left: 550px;
   width: 400px;
   justify-content: space-between;
 }
-#nav h1 {
+.nav h1 {
   font-family: "Yrsa", sans-serif;
   font-size: 30px;
   font-weight: 300;
   color: aliceblue;
 }
-#nav h1:nth-child(1) {
+.nav h1:nth-child(1) {
   border-bottom: solid crimson;
 }
 main {
@@ -366,6 +364,25 @@ a {
 #contacts p:nth-child(1) {
   border: none;
 }
+#aside-nav {
+  position: absolute;
+  z-index: 2;
+  height: 807px;
+  width: 150px;
+  background: crimson;
+  display: none;
+  flex-direction: column;
+  place-items: center;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-top: -20px;
+  transform: skewY(-8deg);
+  box-shadow: #09325bd8 20px 10px 50px;
+}
+#aside-nav h1 {
+  transform: skewY(8deg);
+}
+
 .slide {
   height: 300px;
   width: 200px;
@@ -389,7 +406,9 @@ a {
 .slide img {
   width: 100%;
 }
-
+#convos {
+  margin-top: 80px;
+}
 .slide img::before,
 .slide img::after {
   background: linear-gradient(to right, whitesmoke 0%, black);
@@ -399,7 +418,9 @@ a {
   width: 15%;
   z-index: 2;
 }
-
+#sermons {
+  margin-top: 100px;
+}
 .slide img::before {
   left: 0;
   top: 0;
@@ -412,6 +433,9 @@ a {
 .slide img:hover {
   transform: transform 1s;
 }
+textarea::-webkit-scrollbar {
+  display: none;
+}
 @keyframes scroll {
   from {
     transform: translateX(0);
@@ -422,6 +446,7 @@ a {
 }
 @keyframes copied {
   0% {
+    display: block;
     opacity: 0%;
   }
   60% {
@@ -431,6 +456,24 @@ a {
     opacity: 0%;
   }
 }
+@keyframes openMenu1 {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(20deg);
+  }
+}
+@keyframes openMenu2 {
+}
+@keyframes openMenu3 {
+}
+@keyframes openMenu1 {
+}
+@keyframes openMenu2 {
+}
+@keyframes openMenu3 {
+}
 #burger {
   margin-top: 50px;
   margin-left: 400px;
@@ -439,6 +482,21 @@ a {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+}
+.err,
+.err2 {
+  text-align: center;
+}
+.err {
+  margin-top: 100px;
+  font-size: 50px;
+  color: crimson;
+  font-family: "Yrsa", sans-serif;
+}
+.err2 {
+  font-size: 28px;
+  color: black;
+  font-family: "Yrsa", sans-serif;
 }
 #burger div {
   height: 5px;
@@ -459,9 +517,14 @@ a {
 }
 textarea {
   padding: 10px 10px 10px 10px;
+  resize: none;
+  text-align: center;
+  font-family: "Yrsa", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
 }
 @media screen and (max-width: 1351px) {
-  #nav {
+  .nav {
     margin-left: 400px;
   }
   main h1:nth-child(1) {
@@ -506,7 +569,7 @@ textarea {
   #converse {
     margin-bottom: 60px;
   }
-  #nav {
+  .nav {
     margin-left: 270px;
   }
   footer section:nth-child(2) {
@@ -558,10 +621,10 @@ textarea {
   #footerLogo {
     margin-left: 400px;
   }
-  #nav {
+  .nav {
     margin-left: 200px;
   }
-  #nav h1 {
+  .nav h1 {
     font-size: 23px;
   }
   #sub {
@@ -574,17 +637,23 @@ textarea {
   #circle2 {
     margin-left: 800px;
   }
+  main h1:nth-child(1) {
+    width: 165px;
+  }
 }
 
 @media screen and (max-width: 1005px) {
   #sub {
     margin-left: 450px;
   }
-  #nav {
+  .nav {
     margin-left: 100px;
   }
   #contacts {
     margin-left: -300px;
+  }
+  #content {
+    margin-left: -30px;
   }
   #copy {
     margin-left: 70px;
@@ -607,6 +676,20 @@ textarea {
   #scripture {
     margin-left: 60px;
   }
+  .copyClick img {
+    margin-left: 60px;
+  }
+  #textCopy {
+    margin-left: 100px;
+  }
+  #convos,
+  #sermons,
+  #newsBtn {
+    margin-left: 60px;
+  }
+  .searchField {
+    margin-left: 60px;
+  }
 }
 @media screen and (max-width: 920px) {
   #contacts {
@@ -624,11 +707,17 @@ textarea {
   #burger {
     display: flex;
   }
-  #nav {
+  .nav {
     display: none;
   }
 }
 @media screen and (max-width: 870px) {
+  #scriptureH {
+    margin-top: 10px;
+  }
+  #circle2 {
+    margin-left: 750px;
+  }
   main h1:nth-child(3) {
     display: none;
   }
@@ -693,6 +782,24 @@ textarea {
   #copy {
     margin: auto;
     margin-left: -100px;
+  }
+}
+@media screen and (max-width: 769px) {
+  #convos {
+    margin-top: 120px;
+    margin-right: 40px;
+  }
+  #convos h1,
+  #convos h2 {
+    margin-right: 40px;
+  }
+  #sermons {
+    margin-top: 110px;
+  }
+}
+@media screen and (max-width: 735px) {
+  #search {
+    margin-left: 0px;
   }
 }
 @media screen and (max-width: 630px) {

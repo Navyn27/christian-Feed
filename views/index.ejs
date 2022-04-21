@@ -2,6 +2,11 @@
 <html lang="en">
   <%- include("./partials/head.ejs")%>
   <script src="/scripts/front.js"></script>
+  <style>
+     #aside-nav h1:nth-child(1) {
+      border-bottom: solid #0c4680;
+    }
+  </style>
   <body>
     <div id="bg">
       <div id="backsqr"></div>
@@ -31,7 +36,7 @@
         " <%=data[0].body%> "
       </p>
     </section>
-    <span class="copyClick" id="copy1" onClick="copy()">
+    <span class="copyClick" onClick="copy()">
       <img src="/images/copy.svg">
     </span>
     <span><p id="textCopy">Copied</p></span>

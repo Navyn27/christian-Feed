@@ -3,9 +3,10 @@ const mongoose = require("mongoose");
 const ejs = require("ejs");
 const app = express();
 const { Scripture, Subscriber, Sermon, Convos } = require("./models.js");
+const res = require("express/lib/response");
 
 // const connString =
-//   "mongodb+srv://sugirayvan:GhostOfYvan@dbghost.igi9x.mongodb.net/dbGhost?retryWrites=true&w=majority";
+// "mongodb+srv://sugirayvan:GhostOfYvan@dbghost.igi9x.mongodb.net/dbGhost?retryWrites=true&w=majority";
 
 const connString = "mongodb://localhost/";
 mongoose
@@ -17,9 +18,7 @@ mongoose
     // });
   })
   .catch((err) => {
-    console.log("Unable to connect to Database");
-    console.log("-------------------------------------------");
-    console.log(err);
+    res.render("error", { title: "Error" });
   });
 
 app.listen(7777, () => {
@@ -40,7 +39,7 @@ app.get("/", (req, res) => {
       res.render("index", { title: "Home", data: results });
     })
     .catch((err) => {
-      res.send(err);
+      res.render("error", { title: "Error" });
     });
 });
 
@@ -51,7 +50,7 @@ app.get("/sermons", (req, res) => {
       res.render("sermons", { title: "Sermons", data: results });
     })
     .catch((err) => {
-      res.send(err);
+      res.render("error", { title: "Error" });
     });
 });
 
@@ -64,7 +63,7 @@ app.post("/searchSermon", (req, res) => {
       });
     })
     .catch((err) => {
-      res.send(err);
+      res.render("error", { title: "Error" });
     });
 });
 
@@ -77,7 +76,7 @@ app.post("/searchConvo", (req, res) => {
       });
     })
     .catch((err) => {
-      res.send(err);
+      res.render("error", { title: "Error" });
     });
 });
 
@@ -91,7 +90,7 @@ app.get("/convos", (req, res) => {
       res.render("convos", { title: "Conversations", data: results });
     })
     .catch((err) => {
-      res.send(err);
+      res.render("error", { title: "Error" });
     });
 });
 
@@ -112,11 +111,10 @@ app.post("/convo/addContribution", (req, res) => {
     }
   )
     .then((results) => {
-      res.send("Success" + results);
-      console.log("Success");
+      res.redirect("/convos");
     })
     .catch((err) => {
-      res.send(err);
+      res.render("error", { title: "Error" });
     });
 });
 
@@ -129,7 +127,7 @@ app.get("/sermon/:id", (req, res) => {
       });
     })
     .catch((err) => {
-      res.send(err);
+      res.render("error", { title: "Error" });
     });
 });
 
@@ -142,7 +140,7 @@ app.get("/convo/:id", (req, res) => {
       });
     })
     .catch((err) => {
-      res.send(err);
+      res.render("error", { title: "Error" });
     });
 });
 
@@ -159,7 +157,7 @@ app.post("/newConvo", (req, res) => {
       res.redirect("/");
     })
     .catch((err) => {
-      res.send(err);
+      res.render("error", { title: "Error" });
     });
 });
 
@@ -171,14 +169,13 @@ app.post("/newSermon", (req, res) => {
     snippet: req.body.snippet,
     content: req.body.content,
   });
-  console.log(req.body);
   newSermon
     .save()
     .then((results) => {
       res.redirect("/sermons");
     })
     .catch((err) => {
-      res.send(err);
+      res.render("error", { title: "Error" });
     });
 });
 
@@ -192,12 +189,10 @@ app.post("/intensive/subscribe", (req, res) => {
       res.send(results);
     })
     .catch((err) => {
-      res.send(err);
-      console.log("-------------------------------------------------");
-      console.log(Subscriber);
+      res.render("error", { title: "Error" });
     });
 });
 
 app.use((req, res) => {
-  res.send("404");
+  res.render("404", { title: "404 - Page Unavailable" });
 });
