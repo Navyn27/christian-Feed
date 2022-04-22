@@ -261,7 +261,6 @@ footer {
   color: #84a5c1;
   margin-bottom: 10px;
 }
-
 #contacts p {
   color: #d4ebff;
   font-family: "Yrsa", sans-serif;
@@ -367,11 +366,12 @@ a {
 #aside-nav {
   position: absolute;
   z-index: 2;
-  height: 807px;
-  width: 150px;
+  height: 107px;
+  width: 85px;
   background: crimson;
   display: none;
   flex-direction: column;
+  animation: showMenu 2s;
   place-items: center;
   justify-content: space-evenly;
   margin-left: auto;
@@ -436,6 +436,9 @@ a {
 textarea::-webkit-scrollbar {
   display: none;
 }
+#scripture {
+  margin-right: 10px;
+}
 @keyframes scroll {
   from {
     transform: translateX(0);
@@ -456,23 +459,31 @@ textarea::-webkit-scrollbar {
     opacity: 0%;
   }
 }
-@keyframes openMenu1 {
+@keyframes showMenu {
   0% {
-    transform: rotateX(0deg);
+    width: 85px;
+  }
+  30% {
+    width: 150px;
+    height: 107px;
   }
   100% {
-    transform: rotateX(20deg);
+    width: 150px;
+    height: 807px;
   }
 }
-@keyframes openMenu2 {
-}
-@keyframes openMenu3 {
-}
-@keyframes openMenu1 {
-}
-@keyframes openMenu2 {
-}
-@keyframes openMenu3 {
+@keyframes hidemenu {
+  0% {
+    width: 150px;
+    height: 807px;
+  }
+  70% {
+    width: 150px;
+    height: 107px;
+  }
+  100% {
+    width: 85px;
+  }
 }
 #burger {
   margin-top: 50px;
@@ -641,7 +652,6 @@ textarea {
     width: 165px;
   }
 }
-
 @media screen and (max-width: 1005px) {
   #sub {
     margin-left: 450px;
@@ -702,6 +712,10 @@ textarea {
   #copy {
     margin-left: -30px;
   }
+  #footer {
+    display: grid;
+    place-items: center;
+  }
 }
 @media screen and (max-width: 900px) {
   #burger {
@@ -709,6 +723,12 @@ textarea {
   }
   .nav {
     display: none;
+  }
+  #backsqr {
+    height: 850px;
+  }
+  #copy {
+    margin-left: 20px;
   }
 }
 @media screen and (max-width: 870px) {
@@ -738,9 +758,6 @@ textarea {
   #scripture p {
     font-size: 20px;
     width: auto;
-  }
-  #backsqr {
-    height: 850px;
   }
   #burger {
     margin-right: 40px;
@@ -774,14 +791,14 @@ textarea {
 }
 @media screen and (max-width: 800px) {
   #contacts {
-    margin-left: 10px;
+    margin-left: 70px;
   }
   #footerLogo {
-    margin-left: 180px;
+    margin-left: 250px;
   }
   #copy {
     margin: auto;
-    margin-left: -100px;
+    margin-left: -10px;
   }
 }
 @media screen and (max-width: 769px) {
@@ -804,10 +821,10 @@ textarea {
 }
 @media screen and (max-width: 630px) {
   #contacts {
-    margin-left: 10px;
+    margin-left: -50px;
   }
   #footerLogo {
-    margin-left: 180px;
+    margin-left: 130px;
   }
   #copy {
     margin: auto;
@@ -816,14 +833,103 @@ textarea {
 }
 @media screen and (max-width: 600px) {
   #contacts {
-    margin-left: -70px;
+    margin-left: -30px;
   }
+
   #footerLogo {
-    margin-left: 100px;
+    margin-left: 150px;
   }
   #copy {
     position: relative;
     margin: auto;
+    margin-left: -110px;
+  }
+}
+@media screen and (max-width: 540px) {
+  #contacts {
+    margin-left: -60px;
+  }
+
+  #footerLogo {
+    margin-left: 120px;
+  }
+  #copy {
+    margin-left: -140px;
+  }
+}
+@media screen and (max-width: 500px) {
+  #contacts {
+    margin-left: -80px;
+  }
+
+  #footerLogo {
+    margin-left: 100px;
+  }
+  #copy {
+    margin-left: -160px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .logo h1 {
+    font-size: 35px;
+  }
+  #sub {
+    margin-right: 0px;
+    display: flex;
+    place-items: center;
+  }
+  #scripture {
+    margin-left: 30px;
+  }
+  #headerLogo {
+    margin-left: 30px;
+  }
+  .word2 h1 {
+    font-size: 30px;
+  }
+  .logo img {
+    width: 30px;
+    height: 50px;
+  }
+  #icon1,
+  #icon4 {
+    width: 70px;
+    height: 70px;
+  }
+  #footerLogo {
+    margin-left: 70px;
+  }
+  #contacts {
+    margin-left: -150px;
+  }
+  #icon4 {
+    margin-top: -7px;
+  }
+  #icon2 {
+    margin-top: 3px;
+    width: 50px;
+    height: 50px;
+  }
+  #icon3 {
+    margin-top: 10px;
+    width: 35px;
+    height: 35px;
+  }
+  #burger {
+    margin-top: 45px;
+    height: 23px;
+  }
+  #burger div {
+    height: 4px;
+  }
+  .copyClick {
+    height: 13px;
+    width: 13px;
+    margin-top: 2px;
+    margin-left: -30px;
+  }
+  #copy {
+    font-size: 18px;
     margin-left: -180px;
   }
 }

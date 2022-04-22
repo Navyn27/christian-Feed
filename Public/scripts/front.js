@@ -24,7 +24,15 @@ const copy = () => {
 const showMenu = () => {
   menu = document.getElementById("aside-nav");
   if (menu.style.display == "none") {
+    menu.style.width = "85px";
+    menu.style.height = "107px";
     menu.style.display = "flex";
+    menu.style.animationDirection = "normal";
+    menu.style.transition = "ease-in-out";
+    setTimeout(() => {
+      menu.style.width = "150px";
+      menu.style.height = "807px";
+    }, 2000);
   } else {
     menu.style.display = "none";
   }
